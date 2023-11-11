@@ -1,6 +1,6 @@
 # Overview
 
-This repository contains a simple and illustrative codebase showcasing the implementation of Command Query Responsibility Segregation (CQRS) with Event Sourcing.
+A simple codebase illustrating the concept of CQRS and Event Sourcing.
 
 # Getting Started
 

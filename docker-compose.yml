@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  mongodb:
+    image: mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+  event-bus:
+    restart: unless-stopped
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"

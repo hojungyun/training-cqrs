@@ -6,7 +6,7 @@ This repository contains a simple and illustrative codebase showcasing the imple
 
 #### 1. Download the codebase and install packages
 ```
-git clone https://
+git clone https://github.com/hojungyun/training-cqrs.git
 cd training-cqrs
 poetry install
 ```

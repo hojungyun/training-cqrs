@@ -1,5 +1,5 @@
 import orjson
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, status
 from pydantic import BaseModel
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import sessionmaker, Session
@@ -39,7 +39,7 @@ class ProductBase(BaseModel):
 # FASTAPI
 app = FastAPI()
 
-@app.post("/products")
+@app.post("/products", status_code=status.HTTP_201_CREATED)
 def create_product(product: ProductBase, db: Session = Depends(get_db)):
     db_product = Product(name=product.name)
     db.add(db_product)
@@ -54,4 +54,4 @@ def create_product(product: ProductBase, db: Session = Depends(get_db)):
     print(f"Sending message to MQ now !!!! {product_data=}")
     mq.publish(payload=product_data)
 
-    return db_product
+    return {"ok": True}
